@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.10)
-project(program C)
+project(program)
 
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # program's executable
 set(BIN program)
 
 add_executable(${BIN}
   # Add program's sources here:
-  program/main.c
-  program/foo.c
-  program/component/component.c
+  program/main.cpp
+  program/foo.cpp
+  program/component/component.cpp
 )
 
 target_include_directories(${BIN}
@@ -24,7 +24,7 @@ set(TEST_BIN test_${BIN})
 
 add_executable(${TEST_BIN}
   # Add program's test sources here:
-  tests/main.c
+  tests/main.cpp
 )
 
 target_include_directories(${TEST_BIN}
@@ -37,7 +37,7 @@ set(TEST_COMPONENT test_component)
 
 add_executable(${TEST_COMPONENT}
   # Add component's test sources here:
-  tests/component/component.c
+  tests/component/component.cpp
 )
 
 target_include_directories(${TEST_COMPONENT}
@@ -50,8 +50,8 @@ set(TEST_FOO test_foo)
 
 add_executable(${TEST_FOO}
   # Add foo sources here:
-  program/foo.test.c
-  program/foo.c
+  program/foo.test.cpp
+  program/foo.cpp
 )
 
 target_include_directories(${TEST_FOO}
